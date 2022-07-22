@@ -14,9 +14,9 @@ export class VacunasPage implements OnInit {
   mNumeroLote;
   mNumeroDosis;
   mDosisActual;
-  mHora: String = new Date().toLocaleString();
-  mUltimaAplicacion: String = new Date().toLocaleString();
-  mSiguienteAplicacion: String = new Date().toLocaleString();
+  mHora: String = new Date().toTimeString();
+  mUltimaAplicacion: String = new Date().toDateString();
+  mSiguienteAplicacion: String = new Date().toDateString();
   codigoPersona;
   correoUsuario;
 
@@ -56,6 +56,8 @@ export class VacunasPage implements OnInit {
       fk_usuario: localStorage.getItem('id')
     }
 
+    if(this.mVacuna != null && this.mNumeroLote != null && this.mNumeroDosis != null && this.mDosisActual != null 
+      && this.mHora != null && this.mUltimaAplicacion != null && this.mSiguienteAplicacion != null){
     if(this.mid){
       this.servicio.updateVacuna(dataVacuna, this.mid).subscribe( res => {
         console.log(res);
@@ -69,6 +71,9 @@ export class VacunasPage implements OnInit {
         this.router.navigate(['/listado-vacunas'])
       })
     }
+   }else{
+    this.presentToast('Rellenar todos los campos')
+   }
   }
 
   async presentToast(mensaje: string){

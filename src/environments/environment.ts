@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'http://localhost:3800/api/'
+  url: 'https://shrouded-shore-42671.herokuapp.com/'
 };
 
 /*
