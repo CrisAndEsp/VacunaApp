@@ -1,0 +1,7 @@
+{
+  "name": "VacunaApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
